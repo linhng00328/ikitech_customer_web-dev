@@ -23,18 +23,15 @@ const CategoryColumn8 = React.lazy(() => import("./child/CategoryColumn8"));
 const CategoryColumn10 = React.lazy(() => import("./child/CategoryColumn10"));
 
 function ProductsListPage({ props }) {
-  console.log("props", props);
 
   const appTheme = useSelector((state) => state.app.appTheme.home_page_type);
   const dispatch = useDispatch();
   // let query = queryString.parse(props.location.search);
   let categoryUrl = props.match.params.slug;
 
-  console.log("categoryUrl", categoryUrl);
   const bannerAds = useSelector((state) => state.app.bannerAds);
   const categories = useSelector((state) => state.category.categories);
 
-  console.log("categories111", categories);
   const pageInfo = useSelector((state) => state.product.list);
   const [prevLocation, setPrevLocation] = useState(props.location.state);
   const [currentSort, setCurrentSort] = useState(null);
@@ -259,12 +256,14 @@ function ProductsListPage({ props }) {
                 <ProductList10
                   getPlaceholder={getPlaceholder()}
                   location={props.location}
+                  props={props}
                 />
               ) : (
                 <ListProduct
                   getPlaceholder={getPlaceholder()}
                   location={props.location}
                   categoryUrl={categoryUrl}
+                  props={props}
                 />
               )}
             </>

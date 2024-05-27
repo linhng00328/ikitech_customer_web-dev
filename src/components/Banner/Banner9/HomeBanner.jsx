@@ -155,7 +155,8 @@ export default function HomeBanner(props) {
                     <>
                       <li className="menu-item list-group-item menu-main parent">
                         <Link
-                          to={`/san-pham?danh-muc=${v.slug}-${v.id}`}
+                          // to={`/san-pham?danh-muc=${v.slug}-${v.id}`}
+                          to={`/${v.category_url}`}
                           className="menu-item__link"
                           title="Chăm sóc da mặt"
                         >
@@ -204,7 +205,8 @@ export default function HomeBanner(props) {
                                       alignItems: "center",
                                       width: "100%",
                                     }}
-                                    to={`/san-pham?danh-muc-con=${item.slug}-${item.id}`}
+                                    to={`/${item.category_children_url}`}
+                                    // to={`/san-pham?danh-muc-con=${item.slug}-${item.id}`}
                                   >
                                     <div className="image">
                                       <div className="img-list">

@@ -36,6 +36,7 @@ const ProductList10 = (props) => {
   const pageInfo = useSelector((state) => state.product.list);
   // let query = queryString.parse(props.location.search);
   const categories = useSelector((state) => state.category.categories);
+  console.log("categoriesList10", categories);
   const [categoriesChild, setCategoriesChild] = useState([]);
 
   let query = queryString.parse(props.location.search);
@@ -43,6 +44,7 @@ const ProductList10 = (props) => {
   let lastDashIndexChild = query["danh-muc-con"]?.lastIndexOf("-");
   let newStringParent = query["danh-muc"]?.substring(0, lastDashIndexParent);
   let newStringChild = query["danh-muc-con"]?.substring(0, lastDashIndexChild);
+  let categoryUrl = props.props.match.params.slug;
 
   function handleSort(option) {
     let keys = [...Object.keys(option)];
@@ -144,23 +146,30 @@ const ProductList10 = (props) => {
       />
       {pageInfo.data.length > 0 && (
         <>
-          <div
-            className="sun-editor-editable"
-            dangerouslySetInnerHTML={{
-              __html:
-                categories.find((category) => category.slug == newStringParent)
-                  ?.description || "",
-            }}
-          ></div>
-          <div
-            className="sun-editor-editable"
-            dangerouslySetInnerHTML={{
-              __html:
-                categoriesChild.find(
-                  (category) => category.slug == newStringChild
-                )?.description || "",
-            }}
-          ></div>
+          {categories.find((category) => category.slug == categoryUrl)
+            ?.description && (
+            <div
+              className="sun-editor-editable"
+              dangerouslySetInnerHTML={{
+                __html:
+                  categories.find(
+                    (category) => category.slug == categoryUrl
+                  )?.description || "",
+              }}
+            ></div>
+          )}
+          {categoriesChild.find((category) => category.slug == categoryUrl)
+            ?.description && (
+            <div
+              className="sun-editor-editable"
+              dangerouslySetInnerHTML={{
+                __html:
+                  categoriesChild.find(
+                    (category) => category.slug == categoryUrl
+                  )?.description || "",
+              }}
+            ></div>
+          )}
         </>
       )}
     </ProductList10Styles>
