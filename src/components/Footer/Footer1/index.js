@@ -239,7 +239,7 @@ export default function Footer1() {
                 <a
                   href={
                     appTheme.post_id_about
-                      ? `/tin-tuc/${appTheme.post_id_about}`
+                      ? `/${appTheme.post_id_about}`
                       : "/#"
                   }
                   onClick={(e) => handlePostClick(e, appTheme.post_id_about)}
@@ -251,7 +251,7 @@ export default function Footer1() {
                 <a
                   href={
                     appTheme.post_id_help
-                      ? `/tin-tuc/${appTheme.post_id_help}`
+                      ? `/${appTheme.post_id_help}`
                       : "/#"
                   }
                   onClick={(e) => handlePostClick(e, appTheme.post_id_help)}
@@ -263,7 +263,7 @@ export default function Footer1() {
                 <a
                   href={
                     appTheme.post_id_participating
-                      ? `/tin-tuc/${appTheme.post_id_participating}`
+                      ? `/${appTheme.post_id_participating}`
                       : "/#"
                   }
                   onClick={(e) =>

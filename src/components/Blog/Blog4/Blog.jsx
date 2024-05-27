@@ -60,7 +60,7 @@ export default function Blog(props) {
             <div className="item_blog_base" style={{ background: "white" }}>
               <Link
                 className="thumb"
-                to={v.title ? `/tin-tuc/${v.slug}-${v.id}` : `/tin-tuc/${v.id}`}
+                to={v.post_url ? `/${v.post_url}` : `/${v.id}`}
               >
                 <Lazyload throttle={300} placeholder={<LazyImage></LazyImage>}>
                   <img
@@ -90,9 +90,9 @@ export default function Blog(props) {
                       "-webkit-box-orient": "vertical",
                     }}
                     to={
-                      v.title
-                        ? `/tin-tuc/${v.slug}-${v.id}`
-                        : `/tin-tuc/${v.id}`
+                      v.post_url
+                        ? `/${v.post_url}`
+                        : `/${v.id}`
                     }
                   >
                     {v.title}
@@ -142,9 +142,9 @@ export default function Blog(props) {
               >
                 <Link
                   to={
-                    posts.title
-                      ? `/tin-tuc/${posts.slug}-${posts.id}`
-                      : `/tin-tuc/${posts.id}`
+                    posts.post_url
+                      ? `/${posts.post_url}`
+                      : `/${posts.id}`
                   }
                 >
                   <img
@@ -172,9 +172,9 @@ export default function Blog(props) {
                         "-webkit-box-orient": "vertical",
                       }}
                       to={
-                        posts.title
-                          ? `/tin-tuc/${posts.slug}-${posts.id}`
-                          : `/tin-tuc/${posts.id}`
+                        posts.post_url
+                          ? `/${posts.post_url}`
+                          : `/${posts.id}`
                       }
                     >
                       {posts.title}

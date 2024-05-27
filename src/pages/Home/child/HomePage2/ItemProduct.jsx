@@ -25,7 +25,7 @@ export default function ItemProduct(props) {
     is_favorite,
     is_new,
     is_top_sale,
-
+    product_url
   } = props.product;
   let pastPrice = min_price;
   let discount = 0;
@@ -58,7 +58,7 @@ export default function ItemProduct(props) {
             </div>
           )}
           {is_top_sale && <div className="top-sale-tag">Bán chạy</div>}{" "}
-          <Link to={`/san-pham/${slug}-${id}`}>
+          <Link to={`/${product_url}`}>
           <img
               style={{
         
@@ -81,7 +81,7 @@ export default function ItemProduct(props) {
         <div className="product-info a-center">
           <h3 className="product-name" style = {{height : "35px"}}>
             <Link
-              to={`/san-pham/${slug}-${id}`}
+              to={`/${product_url}`}
               style={{
                 display: "-webkit-box",
                 "-webkit-line-clamp": "2",

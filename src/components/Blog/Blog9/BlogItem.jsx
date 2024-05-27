@@ -43,12 +43,12 @@ const BlogItem = ({ post }) => {
     <BlogItemStyles className="blog9-card">
       <div className="blog9-content">
         <div className="blog9-image">
-          <Link to={`/tin-tuc/${post.slug}-${post.id}`}>
+          <Link to={`/${post.post_url}`}>
             <img src={post.image_url} alt={post.title} loading="lazy" />
           </Link>
         </div>
         <div className="blog9-summary">
-          <Link to={`/tin-tuc/${post.slug}-${post.id}`}>{post.summary}</Link>
+          <Link to={`/${post.post_url}`}>{post.summary}</Link>
         </div>
       </div>
     </BlogItemStyles>

@@ -43,7 +43,7 @@ export default function Blog(props) {
           <div className="item_blog_base" style={{ margin: "15px" }}>
             <Link
               className="thumb"
-              to={v.title ? `/tin-tuc/${v.slug}-${v.id}` : `/tin-tuc/${v.id}`}
+              to={v.post_url ? `/${v.post_url}` : `/${v.id}`}
             >
               <img
                 style={{ height: "100%", width: "100%", objectFit: "cover" }}
@@ -55,7 +55,7 @@ export default function Blog(props) {
           <h5 style={{marginLeft:"16px"}}>
             <Link
               className="a-title"
-              to={v.title ? `/tin-tuc/${v.slug}-${v.id}` : `/tin-tuc/${v.id}`}
+              to={v.post_url ? `/${v.post_url}` : `/${v.id}`}
             >
               {v.title}
             </Link>

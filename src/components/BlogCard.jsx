@@ -11,7 +11,7 @@ export default function BlogCard(props) {
   return (
     <div className="blog-card" onClick={handleClick}>
       <div style={{ display: "none" }}>
-        <Link ref={myLink} to={props.title ? `/tin-tuc/${props.slug}-${props.id}` : `/tin-tuc/${props.id}`} />
+        <Link ref={myLink} to={props.post_url ? `/${props.post_url}` : `/${props.id}`} />
       </div>
       <div className="image">
         <div className="img-container">

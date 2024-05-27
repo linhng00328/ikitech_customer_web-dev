@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { constants as c } from "../../../constants";
 import PageLoading from "../../../components/PageLoading";
 import DataLoading from "./DataLoading";
+import { Helmet } from "react-helmet";
 const BlogCard = React.lazy(() => import("./BlogCard"));
 const Paginate = React.lazy(() => import("../../../components/Paginate"));
 
@@ -24,6 +25,7 @@ function ListNews(props) {
     window.location.href =
       window.location.origin + window.location.pathname + queryStr;
   }
+  console.log("categories3333", categories);
   return (
     <React.Fragment>
       <div
@@ -47,17 +49,38 @@ function ListNews(props) {
         </div>
         <div className="news-category">
           {categories.list.map((v, i) => (
-            <Link
-              key={i}
-              className="news-category-card"
-              to={
-                v.title
-                  ? `/tin-tuc?danh-muc=${v.slug}-${v.id}`
-                  : `/tin-tuc?danh-muc=${v.id}`
-              }
-            >
-              {v.title}
-            </Link>
+            <>
+              <Helmet>
+                {v.meta_robots_index ||
+                  (v.meta_robots_follow && (
+                    <meta
+                      name="robots"
+                      content={`${[
+                        v.meta_robots_index ?? "",
+                        v.meta_robots_follow ?? "",
+                      ].filter(Boolean).join(", ")}`}
+                    />
+                  ))}
+                {v.canonical_url && (
+                  <link
+                    rel="canonical"
+                    href={`https://duocphamnhatban.ikitech.vn/${v.canonical_url}`}
+                  />
+                )}
+              </Helmet>
+              <Link
+                key={i}
+                className="news-category-card"
+                // to={
+                //   v.title
+                //     ? `/${v.post_url}`
+                //     : `/${v.id}`
+                // }
+                to={`/${v.post_category_url}`}
+              >
+                {v.title}
+              </Link>
+            </>
           ))}
         </div>
         <div className="row" style={{}}>
@@ -70,6 +93,7 @@ function ListNews(props) {
                 img={v.image_url}
                 quote={v.summary}
                 slug={v.slug}
+                blog={v}
               />
             </div>
           ))}

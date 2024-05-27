@@ -8,7 +8,7 @@ import { useEffect } from "react";
 const Header = React.lazy(() => import('../../components/Header'));
 const Footer = React.lazy(() => import('../../components/Footer'));
 
-function ErrorPage(props) {
+function ErrorPage({props}) {
   let query = queryString.parse(props.location.search);
   const categoryStatus = useSelector((state) => state.category.status);
   useEffect(() => {

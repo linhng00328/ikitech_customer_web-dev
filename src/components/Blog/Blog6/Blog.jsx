@@ -53,11 +53,10 @@ export default function Blog(props) {
                   <div className="swiper-slide">
                     <Link
                       to={
-                        v.title
-                          ? `/tin-tuc/${v.title
-                              .replace(/[^a-zA-Z ]/g, "")
-                              .replace(/\s/g, "-")}-${v.id}`
-                          : `/tin-tuc/${v.id}`
+                        v.post_url
+                          ? `/${v.post_url
+                              .replace(/[^a-zA-Z ]/g, "")}`
+                          : `/${v.id}`
                       }
                       title={v.title}
                       className="object-fit-img img"
@@ -76,11 +75,10 @@ export default function Blog(props) {
                       <h3 className="text-center uppercase">
                         <Link
                           to={
-                            v.title
-                              ? `/tin-tuc/${v.title
-                                  .replace(/[^a-zA-Z ]/g, "")
-                                  .replace(/\s/g, "-")}-${v.id}`
-                              : `/tin-tuc/${v.id}`
+                            v.post_url
+                              ? `/${v.post_url
+                                  .replace(/[^a-zA-Z ]/g, "")}`
+                              : `/${v.id}`
                           }
                           title={v.title}
                           className="article-title"
@@ -111,9 +109,9 @@ export default function Blog(props) {
                     <div className="col-4">
                       <Link
                             to={
-                          v.title
-                            ? `/tin-tuc/${v.slug}-${v.id}`
-                            : `/tin-tuc/${v.id}`
+                          v.post_url
+                            ? `/${v.post_url}`
+                            : `/${v.id}`
                         }
                         title={v.title}
                         className="article-img"
@@ -132,9 +130,9 @@ export default function Blog(props) {
                       <div className="article-info">
                         <Link
                           to={
-                            v.title
-                              ? `/tin-tuc/${v.slug}-${v.id}`
-                              : `/tin-tuc/${v.id}`
+                            v.post_url
+                              ? `/${v.post_url}`
+                              : `/${v.id}`
                           }
                           title={v.title}
                           className="article-title"

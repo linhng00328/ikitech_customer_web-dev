@@ -785,6 +785,7 @@ export default function MainInfo(props) {
     is_product_retail_step,
     product_retail_steps,
     slug,
+    product_url
   } = props.product;
   if (!images.length) images.push({ image_url: "/img/default_product.jpg" });
   let discount_percent = null;
@@ -1536,7 +1537,7 @@ export default function MainInfo(props) {
 
   const showLinkAffiliate = () => {
     const link = moment().valueOf();
-    return `${window.location.origin}/san-pham/${slug}-${id}${
+    return `${window.location.origin}/${product_url}${
       profile?.id
         ? `?cowc_id=${profile.id}&rp=${encodedString(
             profile.phone_number

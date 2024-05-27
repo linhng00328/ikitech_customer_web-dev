@@ -216,7 +216,7 @@ const ProductItem10 = (props) => {
           {product.is_top_sale && (
             <div className="productItem-topSale">Bán chạy</div>
           )}
-          <Link to={`/san-pham/${product.slug}-${product.id}`}>
+          <Link to={`/${product.product_url}`}>
             <img
               className="productItem-img"
               src={product.images[0]?.image_url || "/img/default_product.jpg"}
@@ -229,7 +229,7 @@ const ProductItem10 = (props) => {
         </div>
         <div className="productItem-info">
           <div className="productItem-name">
-            <Link to={`/san-pham/${product.slug}-${product.id}`}>
+            <Link to={`/${product.product_url}`}>
               {product.name}
             </Link>
           </div>

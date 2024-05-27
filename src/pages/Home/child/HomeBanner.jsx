@@ -94,7 +94,8 @@ export default function HomeBanner(props) {
                   display: "flex",
                   alignItems: "center",
                 }}
-                to={`/san-pham?danh-muc=${v.slug}-${v.id}`}
+                // to={`/san-pham?danh-muc=${v.slug}-${v.id}`}
+                to={`/${v.category_url}`}
               >
                 <div className="image">
                   <div className="img-container">
@@ -121,7 +122,8 @@ export default function HomeBanner(props) {
                       {" "}
                       <Link
                         style={{ cursor: "pointer", display: "flex" }}
-                        to={`/san-pham?danh-muc-con=${child.slug}-${child.id}`}
+                        // to={`/san-pham?danh-muc-con=${child.slug}-${child.id}`}
+                        to={`/${child.category_children_url}`}
                       >
                         <div className="sub-menu-1-item">
                           <div className="image">

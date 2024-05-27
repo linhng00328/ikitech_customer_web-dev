@@ -8,10 +8,10 @@ export default function SuggestBonusProduct({ idMainProduct }) {
   const bonusProducts = useSelector((state) => state.bonusProduct.list.data);
 
   const itemProduct = (product, isBonus = false) => {
-    const { id, name, images, price } = product;
+    const { id, name, images, price, product_url } = product;
     return (
       <div className="product-sub-item" key={id}>
-        <Link to={`/san-pham/${id}`}>
+        <Link to={`/${product_url}`}>
           <img
             src={images[0]?.image_url || "/img/default_product.jpg"}
             alt=""
@@ -22,7 +22,7 @@ export default function SuggestBonusProduct({ idMainProduct }) {
         ) : (
           <p className="product-price">{formatPrice(price)}</p>
         )}
-        <Link to={`/san-pham/${id}`}>
+        <Link to={`/${product_url}`}>
           <p className="product-name">{name}</p>
         </Link>
       </div>
@@ -64,7 +64,7 @@ export default function SuggestBonusProduct({ idMainProduct }) {
           style={{ fontSize: "16px", margin: "4px 0" }}
         >
           Mua {from_quantity} sản phẩm trên để được tặng {bo_quantity}
-          <Link to={`/san-pham/${bo_product.id}`}>
+          <Link to={`/${bo_product.post_url}`}>
             <span className="link-to-product text-decoration underline">
               {bo_product.name}
             </span>

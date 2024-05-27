@@ -175,6 +175,7 @@ export default function ProductItem11Category(props) {
     type_share_collaborator_number,
     money_amount_collaborator,
     check_inventory,
+    product_url
   } = props.product;
   let pastPrice = min_price;
   let discount = 0;
@@ -211,14 +212,14 @@ export default function ProductItem11Category(props) {
           <span>-{discount_percent}%</span>
         </div>
       )}
-      <Link to={`/san-pham/${slug}-${id}`}>
+      <Link to={`/${product_url}`}>
         <div className="product-image">
           <img src={avt} alt={name} loading="lazy" />
         </div>
       </Link>
       <h3 className="product_name">
         <Link
-          to={`/san-pham/${slug}-${id}`}
+          to={`/${product_url}`}
           style={{
             lineHeight: 1.5,
           }}

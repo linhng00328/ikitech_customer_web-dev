@@ -39,8 +39,8 @@ function NewsPage(props) {
                       <Link
                         to={
                           pageInfo.title
-                            ? `/tin-tuc/${pageInfo.slug}-${pageInfo.id}`
-                            : `/tin-tuc/${pageInfo.id}`
+                            ? `/${pageInfo.post_url}`
+                            : `/${pageInfo.id}`
                         }
                         title={pageInfo.title}
                       >
@@ -62,8 +62,8 @@ function NewsPage(props) {
                     <Link
                       to={
                         pageInfo.title
-                          ? `/tin-tuc/${pageInfo.slug}-${pageInfo.id}`
-                          : `/tin-tuc/${pageInfo.id}`
+                          ? `/${pageInfo.post_url}`
+                          : `/${pageInfo.id}`
                       }
                       title={pageInfo.title}
                     >

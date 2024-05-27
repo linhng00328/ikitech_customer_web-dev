@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { constants as c } from "../../../constants";
 import { appActions } from "../../../actions/appActions";
 export default function AwaitReviewCard(props) {
-  let { id, name, images, stars, content,order_code } = props;
+  let { id, name, images, stars, content,order_code, product_url } = props;
   images = images && images.length > 0 ? images : [{ image_url: c.DEFAULT_PRODUCT_IMG }]
   const dispatch = useDispatch();
   const appTheme = useSelector(state => state.app.appTheme);
@@ -32,7 +32,7 @@ export default function AwaitReviewCard(props) {
             </div>
           
             <div>
-              <a href={`/san-pham/${id}`}>Thông tin sản phẩm</a>
+              <a href={`/${product_url}`}>Thông tin sản phẩm</a>
             </div>
 
             <button

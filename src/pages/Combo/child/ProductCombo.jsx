@@ -2,7 +2,7 @@ import { formatPrice } from "../../../helper";
 import { useSelector } from "react-redux";
 export default function ProductCombo(props) {
   const appTheme = useSelector((state) => state.app.appTheme);
-  let { price, product_discount, images, id, min_price, max_price } =
+  let { product_url,price, product_discount, images, id, min_price, max_price } =
     props.product;
   let avt = "/img/default_product.jpg";
   if (product_discount) {
@@ -10,7 +10,7 @@ export default function ProductCombo(props) {
   }
   if (images.length) avt = images[0].image_url;
   function handleClick() {
-    window.location.href = `/san-pham/${id}`;
+    window.location.href = `/${product_url}`;
   }
 
   return (

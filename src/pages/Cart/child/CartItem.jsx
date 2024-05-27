@@ -62,6 +62,7 @@ export default function CartItem(props) {
     name,
     distributes,
     check_inventory,
+    product_url
   } = props.product;
   quantity_in_stock =
     quantity_in_stock >= 0
@@ -333,7 +334,7 @@ export default function CartItem(props) {
               width: "35%",
             }}
           >
-            <a href={"/san-pham/" + id} className="name">
+            <a href={"/" + product_url} className="name">
               {is_bonus === true && (
                 <span className="item__bonus">Quà tặng</span>
               )}

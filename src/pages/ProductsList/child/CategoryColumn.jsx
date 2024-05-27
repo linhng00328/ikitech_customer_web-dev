@@ -113,7 +113,8 @@ export default function CategoryColumn(props) {
                   <Link
                     className="menu-main__link"
                     key={i}
-                    to={`/san-pham?danh-muc=${v.slug}-${v.id}`}
+                    // to={`/san-pham?danh-muc=${v.slug}-${v.id}`}
+                    to={`/${v.category_url}`}
                   >
                     <div className="image">
                       <div className="img-nav">
@@ -159,7 +160,8 @@ export default function CategoryColumn(props) {
                         >
                           <Link
                             style={{ cursor: "pointer", display: "flex" }}
-                            to={`/san-pham?danh-muc-con=${item.slug}-${item.id}`}
+                            // to={`/san-pham?danh-muc-con=${item.slug}-${item.id}`}
+                            to={`/${item.category_children_url}`}
                           >
                             <div
                               className="sub-menu-1-item"

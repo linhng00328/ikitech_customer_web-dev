@@ -25,6 +25,7 @@ export default function ItemProduct(props) {
     is_new,
     is_top_sale,
     slug,
+    product_url
   } = props.product;
   let pastPrice = min_price;
   let discount = 0;
@@ -48,7 +49,7 @@ export default function ItemProduct(props) {
       <div className="product-item">
         <Link
           className="product-img"
-          to={`/san-pham/${slug}-${id}`}
+          to={`/${product_url}`}
         >
           {is_new && <div className="new-tag">Mới</div>}
           {is_favorite && (
@@ -70,7 +71,7 @@ export default function ItemProduct(props) {
           </div>
         </Link>
         <h3 className="product-name leading-snug">
-          <Link to={`/san-pham/${slug}-${id}`}>
+          <Link to={`/${product_url}`}>
             {name}
           </Link>
         </h3>

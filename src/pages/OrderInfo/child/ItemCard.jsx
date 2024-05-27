@@ -2,7 +2,7 @@ import { formatPrice } from "../../../helper";
 
 export default function ItemCard(props) {
   return (
-    <a href={`/san-pham/${props.id}`} className="item-card">
+    <a href={`/${props.product_url}`} className="item-card">
       <div className="image">
         <div className="img-container">
           <img src={props.image} alt="" style={{ background: "url(/img/default_product.jpg)", backgroundSize: "contain" }} />

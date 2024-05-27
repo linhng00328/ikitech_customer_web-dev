@@ -176,7 +176,7 @@ const Footer6 = () => {
   };
 
   function handlePolicyClick(id) {
-    if (id) window.location.href = `/tin-tuc/${id}`;
+    if (id) window.location.href = `/${id}`;
   }
 
   const checkToken = () => {
@@ -350,7 +350,7 @@ const Footer6 = () => {
                     <a
                       href={
                         appTheme.post_id_about
-                          ? `/tin-tuc/${appTheme.post_id_about}`
+                          ? `/${appTheme.post_id_about}`
                           : "#"
                       }
                     >
@@ -361,7 +361,7 @@ const Footer6 = () => {
                     <a
                       href={
                         appTheme.post_id_help
-                          ? `/tin-tuc/${appTheme.post_id_help}`
+                          ? `/${appTheme.post_id_help}`
                           : "/#"
                       }
                     >
@@ -372,7 +372,7 @@ const Footer6 = () => {
                     <a
                       href={
                         appTheme.post_id_participating
-                          ? `/tin-tuc/${appTheme.post_id_participating}`
+                          ? `/${appTheme.post_id_participating}`
                           : "#"
                       }
                     >

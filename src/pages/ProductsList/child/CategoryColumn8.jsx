@@ -38,7 +38,8 @@ export default function CategoryColumn(props) {
                 display: "flex",
                 alignItems: "normal",
               }}
-              to={`/san-pham?danh-muc=${v.slug}-${v.id}`}
+              // to={`/san-pham?danh-muc=${v.slug}-${v.id}`}
+              to={`/${v.category_children}`}
             >
               <div className="image">
                 <div className="img-nav">
@@ -60,7 +61,8 @@ export default function CategoryColumn(props) {
                     <li>
                       <Link
                         style={{ cursor: "pointer", display: "flex" }}
-                        to={`/san-pham?danh-muc-con=${item.slug}-${item.id}`}
+                        // to={`/san-pham?danh-muc-con=${item.slug}-${item.id}`}
+                        to={`/${item.category_children_url}`}
                       >
                         <div className="sub-menu-1-item">
                           <div className="image">

@@ -187,6 +187,7 @@ export default function ProductItem11Promotions(props) {
     type_share_collaborator_number,
     money_amount_collaborator,
     check_inventory,
+    product_url
   } = props.product;
   let pastPrice = min_price;
   let discount = 0;
@@ -223,7 +224,7 @@ export default function ProductItem11Promotions(props) {
           <span>-{discount_percent}%</span>
         </div>
       )}
-      <Link to={`/san-pham/${slug}-${id}`}>
+      <Link to={`/${product_url}`}>
         <div className="product-image">
           {is_top_sale && <div className="top-sale-tag">Bán chạy</div>}
           <img src={avt} alt={name} loading="lazy" />
@@ -231,7 +232,7 @@ export default function ProductItem11Promotions(props) {
       </Link>
       <h3 className="product_name">
         <Link
-          to={`/san-pham/${slug}-${id}`}
+          to={`/${product_url}`}
           style={{
             lineHeight: 1.5,
           }}

@@ -134,7 +134,8 @@ const CategoryColumn10 = () => {
               categories.map((category) => (
                 <div className="category-column__item" key={category.id}>
                   <Link
-                    to={`/san-pham?danh-muc=${category.slug}-${category.id}`}
+                    // to={`/san-pham?danh-muc=${category.slug}-${category.id}`}
+                    to={`/${category.category_url}`}
                   >
                     <div
                       className="category-column__item__name"
@@ -202,7 +203,7 @@ const CategoryColumn10 = () => {
                         category.category_children.map((categoryChild) => (
                           <li key={categoryChild.id}>
                             <Link
-                              to={`/san-pham?danh-muc-con=${categoryChild.slug}-${categoryChild.id}`}
+                              to={`/${categoryChild.category_children_url}`}
                             >
                               {/* <div className="category-column__item_childImg">
                                   <img

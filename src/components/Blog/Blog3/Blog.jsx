@@ -71,7 +71,7 @@ export default function Blog(props) {
           <div className="item_blog_base" style={{ margin: "15px" }}>
             <Link
               className="thumb"
-              to={v.title ? `/tin-tuc/${v.slug}-${v.id}` : `/tin-tuc/${v.id}`}
+              to={v.post_url ? `/${v.post_url}` : `/${v.id}`}
             >
               <Lazyload
                 offset={100}
@@ -91,7 +91,7 @@ export default function Blog(props) {
                   className="a-title"
                   style={{ textTransform: "uppercase" }}
                   to={
-                    v.title ? `/tin-tuc/${v.slug}-${v.id}` : `/tin-tuc/${v.id}`
+                    v.post_url ? `/${v.post_url}` : `/${v.id}`
                   }
                 >
                   {v.title}

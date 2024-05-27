@@ -77,6 +77,7 @@ const CategoryPageStyles = styled.div`
 `;
 
 export default function ListProduct(props) {
+  console.log("props222", props);
   const pageInfo = useSelector((state) => state.product.list);
   const appTheme = useSelector((state) => state.app.appTheme);
   const categories = useSelector((state) => state.category.categories);
@@ -89,6 +90,7 @@ export default function ListProduct(props) {
   const [descending, setDescending] = useState("");
   const [sort_by, setSortBy] = useState("");
   const [categoriesChild, setCategoriesChild] = useState([]);
+  const [categoriesChildTemp, setCategoriesChildTemp] = useState([]);
   console.log("categories", categories);
   console.log("categoriesChild", categoriesChild);
 
@@ -152,24 +154,28 @@ export default function ListProduct(props) {
         ? searchParams?.split("-")?.slice(-1)[0]
         : "";
       let newCategoriesChild = [];
+      let newCategoriesChildTemp = [];
       categories.forEach((category) => {
-        // if (category?.id == id) {
-        //   newCategoriesChild = category.category_children;
-        //   return;
+        if (category?.category_url == props?.categoryUrl) {
+          newCategoriesChild = category?.category_children;
+          return;
+        }
+        // else {
+        //   let newCategoriesTemp = category.category_children;
+        //   category.category_children?.forEach((categoryChild) => {
+        //     if (categoryChild?.id == id) {
+        //       newCategoriesChild = newCategoriesTemp;
+        //       return;
+        //     }
+        //   });
         // }
-        // // else {
-        // //   let newCategoriesTemp = category.category_children;
-        // //   category.category_children?.forEach((categoryChild) => {
-        // //     if (categoryChild?.id == id) {
-        // //       newCategoriesChild = newCategoriesTemp;
-        // //       return;
-        // //     }
-        // //   });
-        // // }
-        category.category_children.map((item) => newCategoriesChild.push(item));
+        category.category_children.map((item) =>
+          newCategoriesChildTemp.push(item)
+        );
       });
 
       setCategoriesChild(newCategoriesChild);
+      setCategoriesChildTemp(newCategoriesChildTemp);
     }
   }, [categories]);
 
@@ -191,7 +197,9 @@ export default function ListProduct(props) {
         <div className="category_list">
           <div className="category_content">
             {categoriesChild.map((item) => (
-              <div className="category_item" key={item.id}>
+              <div className="category_item" key={item.id} style={{
+                paddingTop: "4px"
+              }}>
                 <Link to={`san-pham?danh-muc-con=${item.slug}-${item.id}`}>
                   <div className="category_image">
                     <img
@@ -270,8 +278,9 @@ export default function ListProduct(props) {
               className="sun-editor-editable"
               dangerouslySetInnerHTML={{
                 __html:
-                  categoriesChild.find((category) => category.slug == newStringChild)
-                    ?.description || "",
+                  categoriesChildTemp.find(
+                    (category) => category.slug == newStringChild
+                  )?.description || "",
               }}
             ></div>
           </>

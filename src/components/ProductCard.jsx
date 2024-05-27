@@ -37,6 +37,7 @@ export default function ProductCard(props) {
     money_amount_collaborator,
     stars,
     count_stars,
+    product_url
   } = props.product;
   let discount = 0;
   let discount_percent = 0;
@@ -95,7 +96,7 @@ export default function ProductCard(props) {
   return (
     <div onClick={handleClick} className="product-card" style={props.style}>
       <div style={{ display: "none" }}>
-        <Link ref={myLink} to={`/san-pham/${slug}-${id}`} />
+        <Link ref={myLink} to={`/${product_url}`} />
       </div>
       <div className="image">
         {is_new && <div className="new-tag">Mới</div>}

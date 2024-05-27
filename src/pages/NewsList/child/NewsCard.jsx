@@ -1,8 +1,8 @@
 import { handleImgErr } from "../../../helper";
 export default function NewsCard(props) {
-  const { image, title, preview, date, id } = props;
+  const { image, title, preview, date, id, post_url } = props;
   return (
-    <a href={`/tin-tuc/${id}`} className="news-card row">
+    <a href={`/${post_url}`} className="news-card row">
       <div className="image">
         <div className="img-container">
           <img src={image} alt="" onError={handleImgErr} />

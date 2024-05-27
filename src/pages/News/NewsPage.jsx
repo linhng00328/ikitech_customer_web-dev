@@ -11,6 +11,7 @@ import { FacebookShareButton } from "react-share";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.css";
 import styled from "styled-components";
+import { Helmet } from "react-helmet";
 const BannerVertical = React.lazy(() =>
   import("../../components/BannerVertical")
 );
@@ -51,7 +52,7 @@ const NewsPageStyles = styled.div`
   }
 `;
 
-function NewsPage(props) {
+function NewsPage({ props, newsId }) {
   const badges = useSelector((state) => state.user.badges);
   const profile = useSelector((state) => state.user.profile);
 
@@ -79,31 +80,33 @@ function NewsPage(props) {
     }
     setCustomClass("");
   }
+  console.log("newId", newsId);
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-    let newsId = -1;
-    if (props.match.params.id) {
-      let arr = props.match.params.id.split("-");
-      newsId = arr[arr.length - 1];
-    }
+    // let newsId = -1;
+    // if (props.match.params.slug) {
+    //   let arr = props.match.params.slug.split("-");
+    //   newsId = arr[arr.length - 1];
+    // }
 
     if (pageInfo.status === c.LOADING) dispatch(a.getNewsInfo(newsId));
     if (pageInfo.status === c.SUCCESS) {
-      if (parseInt(newsId) !== pageInfo.id)
+      // if (parseInt(newsId) !== pageInfo.id)
+      if (newsId && newsId != pageInfo.post_url)
         dispatch({ type: c.RESET_NEWS_STATUS });
       if (categories.status === c.LOADING) dispatch(a.getNewsCategory());
       if (latestNews.status === c.LOADING) dispatch(a.getAllNews(""));
     }
-  }, [props.match.params.id, pageInfo]);
+  }, [newsId, pageInfo]);
 
   function togglePopup() {
     setCustomClass(customClass ? "" : "center");
   }
   function copySharedLink() {
-    const link = `${window.location.origin}/tin-tuc/${pageInfo.id}${
+    const link = `${window.location.origin}/${pageInfo.post_url}${
       profile?.id
         ? `?cowc_id=${profile.id}&rp=${encodedString(profile.phone_number)}`
         : ""
@@ -119,9 +122,26 @@ function NewsPage(props) {
     myShareBtn.current.click();
   }
 
-  console.log("pageInfo", pageInfo);
+  console.log("pageInfo111", pageInfo);
   return (
     <React.Fragment>
+      <Helmet>
+        {(pageInfo.meta_robots_index || pageInfo.meta_robots_follow) && (
+          <meta
+            name="robots"
+            content={`${[
+              pageInfo.meta_robots_index ?? "",
+              pageInfo.meta_robots_follow ?? "",
+            ].filter(Boolean).join(", ")}`}
+          />
+        )}
+        {pageInfo.canonical_url && (
+          <link
+            rel="canonical"
+            href={`https://duocphamnhatban.ikitech.vn/${pageInfo.canonical_url}`}
+          />
+        )}
+      </Helmet>
       {/* <Header /> */}
       {pageInfo.status === c.SUCCESS && categories.status === c.SUCCESS ? (
         <React.Fragment>
@@ -148,8 +168,11 @@ function NewsPage(props) {
                     {pageInfo.categories != null &&
                       pageInfo.categories.length > 0 && (
                         <span
+                          // onClick={() => {
+                          //   window.location.href = `/tin-tuc?danh-muc=${pageInfo.categories[0].slug}-${pageInfo.categories[0].id}`;
+                          // }}
                           onClick={() => {
-                            window.location.href = `/tin-tuc?danh-muc=${pageInfo.categories[0].slug}-${pageInfo.categories[0].id}`;
+                            window.location.href = `/${pageInfo.categories[0].post_category_url}`;
                           }}
                         >
                           {pageInfo.categories[0].title} /
@@ -223,7 +246,7 @@ function NewsPage(props) {
                     <div style={{ display: "none" }}>
                       <FacebookShareButton
                         ref={myShareBtn}
-                        url={`${window.location.origin}/tin-tuc/${pageInfo.id}${
+                        url={`${window.location.origin}/${pageInfo.id}${
                           profile?.id
                             ? `?cowc_id=${profile.id}&rp=${encodedString(
                                 profile.phone_number
@@ -262,7 +285,7 @@ function NewsPage(props) {
                 <div className="copyShareContent">
                   <input
                     readOnly
-                    value={`${window.location.origin}/tin-tuc/${pageInfo.id}${
+                    value={`${window.location.origin}/${pageInfo.id}${
                       profile?.id
                         ? `?cowc_id=${profile.id}&rp=${encodedString(
                             profile.phone_number

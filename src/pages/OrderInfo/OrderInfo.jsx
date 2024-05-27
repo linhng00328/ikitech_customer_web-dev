@@ -41,7 +41,7 @@ function OrderInfoPage(props) {
       dispatch(a.getOrderInfo(props.match.params.id));
   });
   function handleShowProduct(id) {
-    window.location.href = `/san-pham/${id}`;
+    window.location.href = `/${id}`;
   }
   function handleCancelOrder() {
     dispatch(
@@ -339,7 +339,7 @@ function OrderInfoPage(props) {
                                   )}
                               </React.Fragment>
                             )}
-                            <button onClick={() => handleShowProduct(v.id)}>
+                            <button onClick={() => handleShowProduct(v.product_url)}>
                               Xem thông tin
                             </button>
                           </div>

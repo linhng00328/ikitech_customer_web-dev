@@ -36,6 +36,7 @@ export default function ItemProduct(props) {
     has_in_product_discount,
     type_share_collaborator_number,
     money_amount_collaborator,
+    product_url
   } = props.product;
   let pastPrice = min_price;
   let discount = 0;
@@ -111,7 +112,7 @@ export default function ItemProduct(props) {
                 ></DiscountProduct>
               ) : null}
               {is_top_sale && <div className="top-sale-tag">Bán chạy</div>}{" "}
-              <Link className="image_thumb" to={`/san-pham/${slug}-${id}`}>
+              <Link className="image_thumb" to={`/${product_url}`}>
                 <div className="product-image">
                   <Lazyload
                     offset={100}
@@ -129,7 +130,7 @@ export default function ItemProduct(props) {
             </div>
             <div className="product-info" style={{ padding: "0 8px 8px 8px" }}>
               <h3 className="product-name">
-                <Link to={`/san-pham/${slug}-${id}`}>{name}</Link>
+                <Link to={`/${product_url}`}>{name}</Link>
               </h3>
 
               <div class="bottom-action">

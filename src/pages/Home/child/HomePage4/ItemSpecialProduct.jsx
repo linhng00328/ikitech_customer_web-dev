@@ -21,6 +21,7 @@ export default function ItemProduct(props) {
     name,
     slug,
     id,
+    product_url
   } = props.product;
   let pastPrice = min_price;
   let discount = 0;
@@ -59,7 +60,7 @@ export default function ItemProduct(props) {
                         <div className="product-transition">
                           <Link
                             className="product-thumb"
-                            to={`/san-pham/${slug}-${id}`}
+                            to={`/${product_url}`}
                             href="oi-le-ruot-do.html"
                           >
                             <img

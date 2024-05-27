@@ -273,7 +273,7 @@ function OrdersListPage() {
                                 </button>
                               ) : (
                                 <a
-                                  href={`/san-pham/${v.line_items_at_time[0].id}`}
+                                  href={`/${v.line_items_at_time[0].product_url}`}
                                 >
                                   {" "}
                                   <button

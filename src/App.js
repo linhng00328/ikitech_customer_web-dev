@@ -1,4 +1,4 @@
-// import "./App.css";
+import "./App.css";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -15,6 +15,7 @@ import ScrollToTop from "./ScrollToTop";
 import Header from "./components/Header";
 import CartPage from "./pages/Cart/CartPage";
 import moment from "moment/moment.js";
+import ContentSlug from "./pages/ContentSlug/index.jsx";
 
 const HomePage = React.lazy(() => import("./pages/Home/index.jsx"));
 const Waller = React.lazy(() => import("./pages/Wallet"));
@@ -122,14 +123,13 @@ function App(props) {
 
             <Switch>
               <Route path="/san-pham/:id" component={ProductInfoPage} />
-              <Route path="/san-pham" component={ProductsListPage} />
-              <Route path="/:slug" component={ProductInfoPage} />
+              {/* <Route path="/san-pham" component={ProductsListPage} /> */}
               <Route path="/danh-gia-cua-toi" component={ReviewPage} />
               <Route path="/yeu-thich" component={FavoritePage} />
               <Route path="/san-pham-da-mua" component={PurchasedPage} />
               <Route path="/gio-hang" component={CartPage} />
               <Route path="/tin-tuc/:id" component={NewsPage} />
-              <Route path="/tin-tuc" component={NewsListPage} />
+              {/* <Route path="/tin-tuc" component={NewsListPage} /> */}
               <Route
                 path="/dia-chi"
                 name="dia-chi"
@@ -152,6 +152,7 @@ function App(props) {
               <Route path="/cong-tac-vien" component={CollaboratorPage} />
               <Route path="/dai-ly" component={AgencyPage} />
               <Route path="/sheet" component={Sheet} />
+              <Route path="/:slug" component={ContentSlug} />
               <Route path="/" exact component={HomePage} />
               <Route path="/*" component={ErrorPage} />
             </Switch>

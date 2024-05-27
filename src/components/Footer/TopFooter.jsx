@@ -30,7 +30,7 @@ export default function Footer1() {
     if (!id) e.preventDefault();
   }
   function handlePolicyClick(id) {
-    if (id) window.location.href = `/tin-tuc/${id}`;
+    if (id) window.location.href = `/${id}`;
   }
   function handleShowPhonePopup() {
     dispatch(appActions.changePopup(c.PHONE_POPUP));

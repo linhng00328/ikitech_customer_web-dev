@@ -169,7 +169,7 @@ export default function Search(props) {
                           : "1px solid transparent",
                     }}
                   >
-                    <Link to={`/san-pham/${product.slug}-${product.id}`}>
+                    <Link to={`/${product.product_url}`}>
                       <div className="item-main">
                         <div className="item-img">
                           <img

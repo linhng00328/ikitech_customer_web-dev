@@ -71,9 +71,9 @@ export default function Blog(props) {
                 <div className="blog-item-thumbnail">
                   <Link
                     to={
-                      v.title
-                        ? `/tin-tuc/${v.slug}-${v.id}`
-                        : `/tin-tuc/${v.id}`
+                      v.post_url
+                        ? `/${v.post_url}`
+                        : `/${v.id}`
                     }
                   >
                     <Lazyload
@@ -108,11 +108,10 @@ export default function Blog(props) {
                         "text-overflow": "ellipsis",
                       }}
                       to={
-                        v.title
-                          ? `/tin-tuc/${v.title
-                              .replace(/[^a-zA-Z ]/g, "")
-                              .replace(/\s/g, "-")}-${v.id}`
-                          : `/tin-tuc/${v.id}`
+                        v.post_url
+                          ? `/${v.post_url
+                              .replace(/[^a-zA-Z ]/g, "")}`
+                          : `/${v.id}`
                       }
                     >
                       {v.title}
@@ -137,9 +136,9 @@ export default function Blog(props) {
                       background: appTheme.color_main_1,
                     }}
                     to={
-                      v.title
-                        ? `/tin-tuc/${v.slug}-${v.id}`
-                        : `/tin-tuc/${v.id}`
+                      v.post_url
+                        ? `/${v.post_url}`
+                        : `/${v.id}`
                     }
                     className="btn"
                   >

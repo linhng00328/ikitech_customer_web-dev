@@ -96,9 +96,9 @@ export default function Blog(props) {
             <div className="tip-img object-fit-img">
               <Link
                      to={
-                          v.title
-                            ? `/tin-tuc/${v.slug}-${v.id}`
-                            : `/tin-tuc/${v.id}`
+                          v.post_url
+                            ? `/${v.post_url}`
+                            : `/${v.id}`
                         }
                 title={ v.title}
               >
@@ -116,9 +116,9 @@ export default function Blog(props) {
               <Link
                 className="title"
                      to={
-                          v.title
-                            ? `/tin-tuc/${v.slug}-${v.id}`
-                            : `/tin-tuc/${v.id}`
+                          v.post_url
+                            ? `/${v.post_url}`
+                            : `/${v.id}`
                         }
               >
                 {extractContent(v.title)}

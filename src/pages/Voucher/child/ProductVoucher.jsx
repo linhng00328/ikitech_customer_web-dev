@@ -68,7 +68,7 @@ const DiscountProductCard = styled.div`
 
 export default function ProductVoucher(props) {
   const appTheme = useSelector((state) => state.app.appTheme);
-  let { price, product_discount, images, id, min_price, max_price, name } = props.product;
+  let { price, product_discount, images, id, min_price, max_price, name, product_url } = props.product;
   let avt = '/img/default_product.jpg';
 
   let discount_percent = null;
@@ -80,7 +80,7 @@ export default function ProductVoucher(props) {
   }
   if (images?.length) avt = images[0].image_url;
   function handleClick() {
-    window.location.href = `/san-pham/${id}`;
+    window.location.href = `/${product_url}`;
   }
   return (
     <DiscountProductCard onClick={handleClick}>

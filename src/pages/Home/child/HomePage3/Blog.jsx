@@ -45,8 +45,8 @@ export default function Blog(props) {
               className="thumb"
               to={
                 v.title
-                  ? `/tin-tuc/${v.slug}-${v.id}`
-                  : `/tin-tuc/${v.id}`
+                  ? `/${v.post_url}`
+                  : `/${v.id}`
               }
             >
               <img
@@ -61,8 +61,8 @@ export default function Blog(props) {
                   className="a-title"
                   to={
                     v.title
-                      ? `/tin-tuc/${v.slug}-${v.id}`
-                      : `/tin-tuc/${v.id}`
+                      ? `/${v.post_url}`
+                      : `/${v.id}`
                   }
                 >
                   {v.title}

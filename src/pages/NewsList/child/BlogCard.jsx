@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 import { handleImgErr } from "../../../helper";
 export default function BlogCard(props) {
+  console.log("props222", props);
   const date = props.date ? props.date.split(" ")[0] : "";
   const myLink = useRef(null);
   function handleClick() {
@@ -12,11 +13,12 @@ export default function BlogCard(props) {
       <div style={{ display: "none" }}>
         <Link
           ref={myLink}
-          to={
-            props.title
-              ? `/tin-tuc/${props.slug}-${props.id}`
-              : `/tin-tuc/${props.id}`
-          }
+          // to={
+          //   props.title
+          //     ? `/${props.slug}`
+          //     : `/${props.id}`
+          // }
+          to={`/${props.blog.post_url}`}
         />
       </div>
       <div className="image">

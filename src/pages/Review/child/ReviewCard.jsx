@@ -11,6 +11,7 @@ export default function ReviewCard(props) {
     video_url_review,
     review,
     handleShowImageVideoEvaluate,
+    product_url
   } = props;
   const imagesConvert =
     images && images?.length > 0
@@ -38,7 +39,7 @@ export default function ReviewCard(props) {
               <span>Đánh giá: </span> {stars} <i className="fas fa-star"></i>
             </div>
             <div>
-              <a href={`/san-pham/${id}`}>Thông tin sản phẩm</a>
+              <a href={`/${product_url}`}>Thông tin sản phẩm</a>
             </div>
           </div>
           <textarea

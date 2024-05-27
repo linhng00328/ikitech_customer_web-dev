@@ -45,6 +45,7 @@ export default function ItemProduct(props) {
     has_in_product_discount,
     type_share_collaborator_number,
     money_amount_collaborator,
+    product_url
   } = props.product;
   let pastPrice = min_price;
   let discount = 0;
@@ -154,7 +155,7 @@ export default function ItemProduct(props) {
   return (
     <div className="swiper-slide">
       <div className="product-item">
-        <Link className="product-img" to={`/san-pham/${slug}-${id}`}>
+        <Link className="product-img" to={`/${product_url}`}>
           {is_new && <div className="new-tag">Mới</div>}
           {is_favorite && (
             <div
@@ -203,7 +204,7 @@ export default function ItemProduct(props) {
           }}
         >
           <Link
-            to={`/san-pham/${slug}-${id}`}
+            to={`/${product_url}`}
             style={{
               lineHeight: 1.5,
             }}

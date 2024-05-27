@@ -35,6 +35,7 @@ export default function ItemProduct(props) {
     type_share_collaborator_number,
     money_amount_collaborator,
     seo_title,
+    product_url
   } = props.product;
   let pastPrice = min_price;
   let discount = 0;
@@ -76,8 +77,8 @@ export default function ItemProduct(props) {
           ) : null}
           {is_top_sale && <div className="top-sale-tag">Bán chạy</div>}{" "}
           <Link
-            // to={`/san-pham/${slug}-${id}`}
-            to={seo_title ? `/${seo_title}` : `/san-pham/${slug}-${id}`}
+            to={`/${product_url}`}
+            // to={seo_title ? `/${seo_title}` : `/san-pham/${slug}-${id}`}
           >
             <Lazyload
               throttle={300}
@@ -108,8 +109,8 @@ export default function ItemProduct(props) {
         <div className="product-info a-center">
           <h3 className="product-name" style={{ height: "41px" }}>
             <Link
-              // to={`/san-pham/${slug}-${id}`}
-              to={seo_title ? `/${seo_title}` : `/san-pham/${slug}-${id}`}
+              to={`/${product_url}`}
+              // to={seo_title ? `/${seo_title}` : `/san-pham/${slug}-${id}`}
               style={{
                 display: "-webkit-box",
                 "-webkit-line-clamp": "2",

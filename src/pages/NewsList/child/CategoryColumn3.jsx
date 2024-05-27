@@ -4,12 +4,12 @@ import BannerVertical from "../../../components/BannerVertical";
 import { constants as c } from "../../../constants";
 import { handleImgErr } from "../../../helper";
 import { useSelector } from "react-redux";
-import "./CategoryColumn3.css"
+import "./CategoryColumn3.css";
 export default function HomeBanner(props) {
   const categories = useSelector((state) => state.news.categories);
   const appTheme = useSelector((state) => state.app.appTheme);
   const { homeInfo } = props;
-  const {bannerAds} = props
+  const { bannerAds } = props;
 
   function handleCateClick(id) {
     window.location.href = `/san-pham?danh-muc-ids=${id}`;
@@ -60,32 +60,37 @@ export default function HomeBanner(props) {
                 <div className="block-cate">
                   <ul>
                     {categories.list.length > 0
-                      ? categories.list?.filter((category => category?.is_show_home))?.map((v, i) => (
-                        <li>
-                          <div >
-                            <Link
-                              className="list-icon-block-cate"
-                              title={v.title}
-                              to={
-                                v.title
-                                  ? `/tin-tuc?danh-muc=${v.slug}-${v.id}`
-                                  : `/tin-tuc?danh-muc=${v.id}`
-                              }
-                            >
-                              <img
-                                onError={handleImgErr}
-                                src={v.image_url}
-                                alt=""
-                                style={{
-                                  objectFir: "contain",
-                                  marginRight: "8px",
-                                }}
-                              />
-                              <div className="title-block-cate">{v.title}</div>
-                            </Link>
-                          </div>
-                        </li>
-                      ))
+                      ? categories.list
+                          ?.filter((category) => category?.is_show_home)
+                          ?.map((v, i) => (
+                            <li>
+                              <div>
+                                <Link
+                                  className="list-icon-block-cate"
+                                  title={v.title}
+                                  // to={
+                                  //   v.title
+                                  //     ? `/tin-tuc?danh-muc=${v.slug}-${v.id}`
+                                  //     : `/tin-tuc?danh-muc=${v.id}`
+                                  // }
+                                  to={`${v.post_category_url}`}
+                                >
+                                  <img
+                                    onError={handleImgErr}
+                                    src={v.image_url}
+                                    alt=""
+                                    style={{
+                                      objectFir: "contain",
+                                      marginRight: "8px",
+                                    }}
+                                  />
+                                  <div className="title-block-cate">
+                                    {v.title}
+                                  </div>
+                                </Link>
+                              </div>
+                            </li>
+                          ))
                       : null}
                   </ul>
                 </div>
@@ -95,8 +100,8 @@ export default function HomeBanner(props) {
         </div>
         {bannerAds.status === c.SUCCESS
           ? bannerAds.type_7.length > 0 && (
-            <BannerVertical banners={bannerAds.type_7} />
-          )
+              <BannerVertical banners={bannerAds.type_7} />
+            )
           : null}
       </div>
     </div>

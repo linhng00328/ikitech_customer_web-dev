@@ -73,11 +73,10 @@ export default function Blog(props) {
             <div className="tip-img object-fit-img">
               <Link
                 to={
-                  v.title
-                    ? `/tin-tuc/${v.title
-                        .replace(/[^a-zA-Z ]/g, "")
-                        .replace(/\s/g, "-")}-${v.id}`
-                    : `/tin-tuc/${v.id}`
+                  v.post_url
+                    ? `/${v.post_url
+                        .replace(/[^a-zA-Z ]/g, "")}`
+                    : `/${v.id}`
                 }
                 title="Sữa nội địa Nhật nào tốt? Cập nhật bảng giá sữa Nhật nội địa mới nhất"
               >
@@ -88,11 +87,10 @@ export default function Blog(props) {
               <Link
                 className="title"
                 to={
-                  v.title
-                    ? `/tin-tuc/${v.title
-                        .replace(/[^a-zA-Z ]/g, "")
-                        .replace(/\s/g, "-")}-${v.id}`
-                    : `/tin-tuc/${v.id}`
+                  v.post_url
+                    ? `/${v.post_url
+                        .replace(/[^a-zA-Z ]/g, "")}`
+                    : `/${v.id}`
                 }
               >
                 {extractContent(v.title)}

@@ -1,14 +1,14 @@
 import { useSelector } from "react-redux";
 import { formatPrice, formatPriceOrContact } from "../../../helper";
 export default function DiscountProduct(props) {
-  const { product_discount, price, images, id, name, slug, min_price } =
+  const {product_url, product_discount, price, images, id, name, slug, min_price } =
     props.product;
   console.log("DiscountProduct ~ props.product", props.product);
   const appTheme = useSelector((state) => state.app.appTheme);
   let avt =
     images.length > 0 ? images[0].image_url : "/img/default_product.jpg";
   function handleClick() {
-    window.location.href = `/san-pham/${slug}-${id}`;
+    window.location.href = `/${product_url}`;
   }
   return (
     <div className="discount-product-card" onClick={handleClick}>

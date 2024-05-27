@@ -9,7 +9,7 @@ export default function NewsCard(props) {
   return (
     <div className="news-card" onClick={handleClick}>
       <div style={{ display: "none" }}>
-        <Link ref={myLink} to={`/tin-tuc/${props.slug}-${props.id}`} />
+        <Link ref={myLink} to={`/${props.post_url}`} />
       </div>
       <div className="image">
         <div className="img-container">

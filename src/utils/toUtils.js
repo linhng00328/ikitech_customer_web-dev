@@ -2,13 +2,13 @@ export function toPage(typeAction, valueAction) {
   // console.log("typeAction: ", typeAction)
   // console.log("valueAction: ", valueAction)
   if (typeAction === "PRODUCT") {
-    window.location.href = `/san-pham/${valueAction}`;
+    window.location.href = `/${valueAction}`;
   }
   if (typeAction === "CATEGORY_PRODUCT") {
     window.location.href = `/san-pham?danh-muc=${valueAction}`;
   }
   if (typeAction === "POST") {
-    window.location.href = `/tin-tuc/${valueAction}`;
+    window.location.href = `/${valueAction}`;
   }
   if (typeAction === "CATEGORY_POST") {
     window.location.href = `/tin-tuc?danh-muc=${valueAction}`;

@@ -52,10 +52,9 @@ export default function Blog(props) {
                   <Link
                     to={
                       v.title
-                        ? `/tin-tuc/${v.title
-                            .replace(/[^a-zA-Z ]/g, "")
-                            .replace(/\s/g, "-")}-${v.id}`
-                        : `/tin-tuc/${v.id}`
+                        ? `/${v.post_url
+                            .replace(/[^a-zA-Z ]/g, "")}`
+                        : `/${v.id}`
                     }
                   >
                     <img
@@ -73,10 +72,9 @@ export default function Blog(props) {
                     <Link
                       to={
                         v.title
-                          ? `/tin-tuc/${v.title
-                              .replace(/[^a-zA-Z ]/g, "")
-                              .replace(/\s/g, "-")}-${v.id}`
-                          : `/tin-tuc/${v.id}`
+                          ? `/${v.post_url
+                              .replace(/[^a-zA-Z ]/g, "")}`
+                          : `/${v.id}`
                       }
                     >
                       {v.title}
@@ -100,10 +98,9 @@ export default function Blog(props) {
                     }}
                     to={
                       v.title
-                        ? `/tin-tuc/${v.title
-                            .replace(/[^a-zA-Z ]/g, "")
-                            .replace(/\s/g, "-")}-${v.id}`
-                        : `/tin-tuc/${v.id}`
+                        ? `/${v.post_url
+                            .replace(/[^a-zA-Z ]/g, "")}`
+                        : `/${v.id}`
                     }
                     className="btn"
                   >

@@ -43,6 +43,7 @@ export default function ItemProduct(props) {
     has_in_combo,
     has_in_bonus_product,
     has_in_product_discount,
+    product_url
   } = props.product;
   let pastPrice = min_price;
   let discount = 0;
@@ -108,7 +109,7 @@ export default function ItemProduct(props) {
                             placeholder={<LazyImage></LazyImage>}
                           >
                             <Link
-                              to={`/san-pham/${slug}-${id}`}
+                              to={`/${product_url}`}
                               title={name}
                               className="item-product-name"
                             >
@@ -122,7 +123,7 @@ export default function ItemProduct(props) {
                         </div>
                         <div className="product-info">
                           <Link
-                            to={`/san-pham/${slug}-${id}`}
+                            to={`/${product_url}`}
                             title={name}
                             className="item-product-name"
                           >

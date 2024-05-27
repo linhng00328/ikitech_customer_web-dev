@@ -65,7 +65,7 @@ export default function Header_1(props) {
     // let orderID = arr[arr.length - 1];
     let orderID = v.references_value;
     if (v.type === "NEW_POST") {
-      window.location.href = `/tin-tuc/${orderID}`;
+      window.location.href = `/${orderID}`;
       return;
     }
 
@@ -74,7 +74,7 @@ export default function Header_1(props) {
     }
 
     if (v.type_action === "PRODUCT" && v.value_action) {
-      window.location.href = `/san-pham/${v.value_action}`;
+      window.location.href = `/${v.value_action}`;
     }
 
     if (v.type_action === "LINK" && v.value_action) {
@@ -86,7 +86,7 @@ export default function Header_1(props) {
     }
 
     if (v.type_action === "POST" && v.value_action) {
-      window.location.href = `/tin-tuc/${v.value_action}`;
+      window.location.href = `/${v.value_action}`;
     }
 
     if (v.type_action === "CATEGORY_POST" && v.value_action) {

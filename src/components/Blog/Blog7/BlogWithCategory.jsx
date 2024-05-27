@@ -67,9 +67,9 @@ export default function Blog(props) {
                         {" "}
                         <Link
                           to={
-                            v.title
-                              ? `/tin-tuc/${v.slug}-${v.id}`
-                              : `/tin-tuc/${v.id}`
+                            v.post_url
+                              ? `/${v.post_url}`
+                              : `/${v.id}`
                           }
                           title={v.title}
                           className="thumb img-shine name"
@@ -95,8 +95,8 @@ export default function Blog(props) {
                               className="name"
                               to={
                                 v.title
-                                  ? `/tin-tuc/${v.slug}-${v.id}`
-                                  : `/tin-tuc/${v.id}`
+                                  ? `/${v.post_url}`
+                                  : `/${v.id}`
                               }
                               title="Giá dịch vụ y tế trong và ngoài phạm vi BHYT tăng từ 20/8"
                             >

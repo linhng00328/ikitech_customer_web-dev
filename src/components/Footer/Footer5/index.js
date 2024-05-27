@@ -35,7 +35,7 @@ export default function Footer3() {
     if (!id) e.preventDefault();
   }
   function handlePolicyClick(id) {
-    if (id) window.location.href = `/tin-tuc/${id}`;
+    if (id) window.location.href = `/${id}`;
   }
   function handleShowPhonePopup() {
     dispatch(appActions.changePopup(c.PHONE_POPUP));
@@ -384,7 +384,7 @@ export default function Footer3() {
                         className="link"
                         href={
                           appTheme.post_id_about
-                            ? `/tin-tuc/${appTheme.post_id_about}`
+                            ? `/${appTheme.post_id_about}`
                             : "/#"
                         }
                         onClick={(e) =>
@@ -400,7 +400,7 @@ export default function Footer3() {
                         className="link"
                         href={
                           appTheme.post_id_help
-                            ? `/tin-tuc/${appTheme.post_id_help}`
+                            ? `/${appTheme.post_id_help}`
                             : "/#"
                         }
                         onClick={(e) =>
@@ -416,7 +416,7 @@ export default function Footer3() {
                         className="link"
                         href={
                           appTheme.post_id_participating
-                            ? `/tin-tuc/${appTheme.post_id_participating}`
+                            ? `/${appTheme.post_id_participating}`
                             : "/#"
                         }
                         onClick={(e) =>

@@ -4,9 +4,9 @@ import { handleImgErr } from "../../../helper";
 import BannerVertical from "../../../components/BannerVertical";
 import { constants as c } from "../../../constants";
 import CategoryC from "../../../components/CategoryColumn";
-import "./CategoryColumn5.css"
+import "./CategoryColumn5.css";
 export default function CategoryColumn(props) {
-  const {bannerAds} = props
+  const { bannerAds } = props;
 
   const categories = useSelector((state) => state.news.categories);
   const appTheme = useSelector((state) => state.app.appTheme.home_page_type);
@@ -21,40 +21,42 @@ export default function CategoryColumn(props) {
         </div>
       )}
       <div className="column">
-        {categories.list?.filter((category => category?.is_show_home))?.map((v, i) => (
-          <Link
-            key={i}
-            style={{
-              cursor: "pointer",
-              display: "flex",
-              "border-top": `${i == 0 ? null : "2px dotted #e5e5e5"}`,
-              margin: "0 13px",
-              padding: "0.5em",
-            }}
-            to={
-              v.title
-                ? `/tin-tuc?danh-muc=${v.slug}-${v.id}`
-                : `/tin-tuc?danh-muc=${v.id}`
-            }
-          >
-            <div className="image">
-              <div className="img-container">
-                <img
-                  onError={handleImgErr}
-                  src={v.image_url}
-                  alt=""
-                  style={{ objectFir: "contain", marginRight: "8px" }}
-                />
+        {categories.list
+          ?.filter((category) => category?.is_show_home)
+          ?.map((v, i) => (
+            <Link
+              key={i}
+              style={{
+                cursor: "pointer",
+                display: "flex",
+                "border-top": `${i == 0 ? null : "2px dotted #e5e5e5"}`,
+                margin: "0 13px",
+                padding: "0.5em",
+              }}
+              // to={
+              // v.title
+              //   ? `/tin-tuc?danh-muc=${v.slug}-${v.id}`
+              //   : `/tin-tuc?danh-muc=${v.id}`
+
+              // }
+              to={`/${v.post_category_url}`}
+            >
+              <div className="image">
+                <div className="img-container">
+                  <img
+                    onError={handleImgErr}
+                    src={v.image_url}
+                    alt=""
+                    style={{ objectFir: "contain", marginRight: "8px" }}
+                  />
+                </div>
               </div>
-            </div>
-            <div>{v.title}</div>
-          </Link>
-        ))}
+              <div>{v.title}</div>
+            </Link>
+          ))}
       </div>
       {bannerAds.status === c.SUCCESS
-        ? bannerAds.length > 0 && (
-            <BannerVertical banners={bannerAds.type_7} />
-          )
+        ? bannerAds.length > 0 && <BannerVertical banners={bannerAds.type_7} />
         : null}
     </div>
   );
