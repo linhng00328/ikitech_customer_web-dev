@@ -180,6 +180,9 @@ export default function ListProduct(props) {
     }
   }, [categories]);
 
+  console.log(categories.find((category) => category.slug == categoryUrl)
+  ?.description);
+
   return (
     <CategoryPageStyles className="category_page">
       <div className="breadcrumbs ">
@@ -268,34 +271,34 @@ export default function ListProduct(props) {
           totalPage={pageInfo.last_page}
           handlePageSelect={handleSort}
         />
-        {pageInfo.data.length > 0 && (
+        {/* {pageInfo.data.length > 0 && ( */}
           <>
-            {categories.find((category) => category.slug == categoryUrl)
+            {categories.find((category) => category.category_url == categoryUrl)
               ?.description && (
               <div
                 className="sun-editor-editable"
                 dangerouslySetInnerHTML={{
                   __html:
-                    categories.find((category) => category.slug == categoryUrl)
+                    categories.find((category) => category.category_url == categoryUrl)
                       ?.description || "",
                 }}
               ></div>
             )}
             {categoriesChildTemp.find(
-              (category) => category.slug == categoryUrl
+              (category) => category.category_children_url == categoryUrl
             )?.description && (
               <div
                 className="sun-editor-editable"
                 dangerouslySetInnerHTML={{
                   __html:
                     categoriesChildTemp.find(
-                      (category) => category.slug == categoryUrl
+                      (category) => category.category_children_url == categoryUrl
                     )?.description || "",
                 }}
               ></div>
             )}
           </>
-        )}
+        {/* )} */}
       </div>
     </CategoryPageStyles>
   );

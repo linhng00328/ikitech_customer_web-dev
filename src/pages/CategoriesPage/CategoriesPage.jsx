@@ -103,7 +103,8 @@ function CategoriesPage() {
                 <Link
                   key={category.id}
                   className="category-card"
-                  to={`/san-pham?danh-muc-con=${category.name}-${category.id}`}
+                  // to={`/san-pham?danh-muc-con=${category.name}-${category.id}`}
+                  to={`/${category?.category_children_url}`}
                 >
                   <div className="image">
                     <div className="img-container">

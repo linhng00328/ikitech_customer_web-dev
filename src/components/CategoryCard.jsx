@@ -18,7 +18,10 @@ export default function CategoryCard(props) {
   return (
     <div className="category-card" onClick={handleClick}>
       <div style={{ display: "none" }}>
-        <Link ref={myRef} to={`/san-pham?danh-muc=${slug}-${id}`}></Link>
+        <Link ref={myRef}
+        //  to={`/san-pham?danh-muc=${slug}-${id}`}
+        to={`/${category?.category_url}`}
+         ></Link>
       </div>
       <div className="image">
         <div className="img-container">
