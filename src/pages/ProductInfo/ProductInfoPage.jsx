@@ -72,10 +72,26 @@ function ProductInfoPage({ productId }) {
           content={`${[
             product.meta_robots_index ?? "",
             product.meta_robots_follow ?? "",
-          ].filter(Boolean).join(", ")}`}
+          ]
+            .filter(Boolean)
+            .join(", ")}`}
         />
         {product.canonical_url && (
-          <link rel="canonical" href={`https://duocphamnhatban.ikitech.vn/${product.canonical_url}`} />
+          <link
+            rel="canonical"
+            href={`https://duocphamnhatban.ikitech.vn/${product.canonical_url}`}
+          />
+        )}
+
+        {product.seo_title && (
+          <link
+            rel="canonical"
+            href={`https://duocphamnhatban.ikitech.vn/${product.canonical_url}`}
+          />
+        )}
+
+        {product.seo_description && (
+          <meta name="description" content={product.seo_description} />
         )}
       </Helmet>
 

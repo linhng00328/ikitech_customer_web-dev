@@ -112,7 +112,9 @@ function NewsListPage({ props }) {
               content={`${[
                 category.meta_robots_index ?? "",
                 category.meta_robots_follow ?? "",
-              ].filter(Boolean).join(", ")}`}
+              ]
+                .filter(Boolean)
+                .join(", ")}`}
             />
           )}
         {category && category.canonical_url && (
@@ -121,6 +123,10 @@ function NewsListPage({ props }) {
             href={`https://duocphamnhatban.ikitech.vn/${category.canonical_url}`}
           />
         )}
+        {category && category?.seo_description && (
+          <meta name="description" content={category?.seo_description} />
+        )}
+        {category && category?.seo_title && <title>{category?.seo_title}</title>}
       </Helmet>
       {/* {categories.status === c.SUCCESS ? ( */}
       <div className="news-list-page container">

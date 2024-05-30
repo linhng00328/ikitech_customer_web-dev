@@ -66,10 +66,14 @@ function NewsPage({ props, newsId }) {
   const myShareBtn = useRef(null);
 
   // document.title = pageInfo.title ? pageInfo.title : "Tin tức";
-  document.title =
-    pageInfo.title == null || pageInfo.title == ""
-      ? pageInfo.title || "Tin tức"
-      : pageInfo.title;
+  if (pageInfo?.seo_title) {
+    document.title = pageInfo?.seo_title;
+  } else {
+    document.title =
+      pageInfo.title == null || pageInfo.title == ""
+        ? pageInfo.title || "Tin tức"
+        : pageInfo.title;
+  }
 
   console.log(pageInfo);
   function modalClick(e) {
@@ -80,7 +84,6 @@ function NewsPage({ props, newsId }) {
     }
     setCustomClass("");
   }
-  console.log("newId", newsId);
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -132,14 +135,20 @@ function NewsPage({ props, newsId }) {
             content={`${[
               pageInfo.meta_robots_index ?? "",
               pageInfo.meta_robots_follow ?? "",
-            ].filter(Boolean).join(", ")}`}
+            ]
+              .filter(Boolean)
+              .join(", ")}`}
           />
         )}
-        {pageInfo.canonical_url && (
+        {pageInfo?.canonical_url && (
           <link
             rel="canonical"
             href={`https://duocphamnhatban.ikitech.vn/${pageInfo.canonical_url}`}
           />
+        )}
+
+        {pageInfo?.seo_description && (
+          <meta name="description" content={pageInfo.seo_description} />
         )}
       </Helmet>
       {/* <Header /> */}

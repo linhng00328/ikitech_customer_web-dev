@@ -904,7 +904,7 @@
   }
   .header-10 .toogle-nav-wrapper.visible .navigation-wrapper, .header-10 .toogle-nav-wrapper:not(.nav-index):hover .navigation-wrapper {
     opacity: 1;
-    visibility: visible;
+    /* visibility: visible; */
     z-index: 90;
   }
   @media (max-width: 1024px) {

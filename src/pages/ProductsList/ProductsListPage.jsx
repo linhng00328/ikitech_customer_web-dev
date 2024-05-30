@@ -23,7 +23,6 @@ const CategoryColumn8 = React.lazy(() => import("./child/CategoryColumn8"));
 const CategoryColumn10 = React.lazy(() => import("./child/CategoryColumn10"));
 
 function ProductsListPage({ props }) {
-
   const appTheme = useSelector((state) => state.app.appTheme.home_page_type);
   const dispatch = useDispatch();
   // let query = queryString.parse(props.location.search);
@@ -200,7 +199,9 @@ function ProductsListPage({ props }) {
               content={`${[
                 category.meta_robots_index ?? "",
                 category.meta_robots_follow ?? "",
-              ].filter(Boolean).join(", ")}`}
+              ]
+                .filter(Boolean)
+                .join(", ")}`}
             />
           )}
         {category && category.canonical_url && (
@@ -209,6 +210,10 @@ function ProductsListPage({ props }) {
             href={`https://duocphamnhatban.ikitech.vn/${category.canonical_url}`}
           />
         )}
+        {category && category.seo_description && (
+          <meta name="description" content={category.seo_description} />
+        )}
+        {category && category.seo_title && <title>{category.seo_title}</title>}
       </Helmet>
       <div className="products-list-page container">
         <div className="mobile-tool mobile">
